@@ -37,12 +37,12 @@ namespace Fuzzy
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
 
-            
-            
-            
-            
+
+
+
+
+
         }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,19 +59,19 @@ namespace Fuzzy
 
         private void runSimulation()
         {
-            
+
             road1.InputValue = Convert.ToDouble(road1Cars.Text);
             road2.InputValue = Convert.ToDouble(road2Cars.Text);
             road3.InputValue = Convert.ToDouble(road3Cars.Text);
             road4.InputValue = Convert.ToDouble(road4Cars.Text);
-            
-            
+
+
             road1.Fuzzify("High");
             road4.Fuzzify("High");
             road2.Fuzzify("High");
             road3.Fuzzify("High");
             nextGreen.Fuzzify("Uncertain");
-            
+
             double result = roadSelection.Defuzzify();
             Console.WriteLine("Starting...");
             Console.WriteLine(result);
@@ -107,7 +107,7 @@ namespace Fuzzy
                         road4Cars.Text = Convert.ToString(Convert.ToInt32(road4Cars.Text) + random.Next(0, 5));
                         Thread.Sleep(100);
                     }
-                        
+
                     break;
                 case 3:
                     while (!(road3Cars.Text.Equals("0")))
@@ -138,9 +138,9 @@ namespace Fuzzy
             Console.WriteLine(road2Cars.Text);
             Console.WriteLine(road3Cars.Text);
             Console.WriteLine(road4Cars.Text);
-             
-            
-            
+
+
+
         }
 
         private void setTLights(int state)
@@ -212,7 +212,7 @@ namespace Fuzzy
             roadSelection.LinguisticVariableCollection.Add(road4);
             roadSelection.LinguisticVariableCollection.Add(nextGreen);
 
-            
+
 
             roadSelection.FuzzyRuleCollection.Add(new FuzzyRule("IF (Road1 IS Low) AND (Road2 IS Low) AND (Road3 IS Low) AND (Road4 IS Low) THEN NextGreen IS TrafficLight2"));
             roadSelection.FuzzyRuleCollection.Add(new FuzzyRule("IF (Road1 IS Low) AND (Road2 IS Low) AND (Road3 IS Low) AND (Road4 IS Mid) THEN NextGreen IS TrafficLight4"));
@@ -327,7 +327,8 @@ namespace Fuzzy
                 state = 4;
                 max = Convert.ToInt32(road4Cars.Text);
             }
-            if ((state == 2) && (road2Cars.Text.Equals("0"))){
+            if ((state == 2) && (road2Cars.Text.Equals("0")))
+            {
                 state = 3;
             }
         }
